@@ -11,8 +11,8 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:titleTextColor="@color/cardview_light_background"
-        android:background="@color/colorPrimary" />
+        android:background="@color/md_blue_600"
+        app:titleTextColor="@color/cardview_light_background" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,16 +20,19 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/btn_checkIn"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_action_worker_loading_boxes"
             android:text="Check In" />
 
         <Button
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:layout_weight="1"
-            android:text="Check In" />
+            android:drawableLeft="@drawable/ic_action_worker_unloading_boxes"
+            android:text="Check Out" />
     </LinearLayout>
 
     <LinearLayout
@@ -39,16 +42,16 @@
 
         <Button
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:layout_weight="1"
-            android:drawableLeft="@drawable/ic_move"
+            android:drawableLeft="@drawable/ic_action_baggage"
             android:text="Move" />
 
         <Button
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:layout_weight="1"
-            android:drawableLeft="@drawable/ic_stock"
+            android:drawableLeft="@drawable/ic_action_stock"
             android:text="Stock" />
     </LinearLayout>
 
@@ -59,15 +62,16 @@
 
         <Button
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:layout_weight="1"
-            android:drawableLeft="@drawable/ic_transaction"
+            android:drawableLeft="@drawable/ic_action_money_transaction"
             android:text="Transaction" />
 
         <Button
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_action_people"
             android:text="Buyer" />
     </LinearLayout>
 
@@ -78,14 +82,16 @@
 
         <Button
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_action_stock_data_analysis"
             android:text="Analytics" />
 
         <Button
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_action_salesman"
             android:text="Vendor" />
     </LinearLayout>
 
