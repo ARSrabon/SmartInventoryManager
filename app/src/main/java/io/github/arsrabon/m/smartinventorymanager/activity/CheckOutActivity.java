@@ -1,44 +1,70 @@
-package io.github.arsrabon.m.smartinventorymanager;
+package io.github.arsrabon.m.smartinventorymanager.activity;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.DigitalClock;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.zxing.client.android.Intents;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
-public class CheckInActivity extends AppCompatActivity {
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-    Toolbar toolbar;
-    EditText edt_ItemCode;
-    ImageButton btn_barcodeScanner;
-    //qr code scanner object
+import io.github.arsrabon.m.smartinventorymanager.R;
+
+public class CheckOutActivity extends AppCompatActivity {
+
+    private Toolbar toolbar;
+    private Date date;
+    private SimpleDateFormat simpleDateFormat;
+
     private IntentIntegrator qrScan;
+
+    private EditText edt_ItemCode;
+    //    private TextView
+    private ImageButton btn_barcodeScanner;
+    private DigitalClock digitalClock;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_check_out);
+
         setContentView(R.layout.activity_check_in);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("New Check In");
+        getSupportActionBar().setTitle("Check Out");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        // initiate date format
+        date = new Date();
+        simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm a");
 
         //intializing scan object
         qrScan = new IntentIntegrator(this);
 
         edt_ItemCode = (EditText) findViewById(R.id.edt_itemCode);
         btn_barcodeScanner = (ImageButton) findViewById(R.id.btn_barcodeScanner);
+        digitalClock = (DigitalClock) findViewById(R.id.digitalClock);
 
         btn_barcodeScanner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //initiating the qr code scan
+                qrScan.setOrientationLocked(false);
+                qrScan.setTimeout(20000);
+//                qrScan.addExtra(Intents.Scan.INVERTED_SCAN, true);
+                qrScan.setBeepEnabled(false);
                 qrScan.initiateScan();
             }
         });
@@ -55,8 +81,8 @@ public class CheckInActivity extends AppCompatActivity {
             } else {
                 //if qr contains data
                 try {
-                   edt_ItemCode.setText(result.getContents().toString());
-                    Toast.makeText(this,result.getContents().toString(), Toast.LENGTH_LONG).show();
+                    edt_ItemCode.setText(result.getContents().toString());
+                    Toast.makeText(this, result.getContents().toString(), Toast.LENGTH_LONG).show();
                 } catch (Exception e) {
                     e.printStackTrace();
                     //if control comes here
@@ -69,5 +95,20 @@ public class CheckInActivity extends AppCompatActivity {
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case android.R.id.home:
+                Toast.makeText(this, "Home arrow btn is pressed.", Toast.LENGTH_SHORT).show();
+                break;
+//            case R.id.addNewItem:
+//                Toast.makeText(this, "New item.", Toast.LENGTH_SHORT).show();
+//                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

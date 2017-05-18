@@ -5,14 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="io.github.arsrabon.m.smartinventorymanager.MainActivity">
+    tools:context="io.github.arsrabon.m.smartinventorymanager.activity.MainActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/md_blue_600"
-        app:titleTextColor="@color/cardview_light_background" />
+        android:background="#0039cb"
+        android:paddingTop="@dimen/appbar_padding_top"
+        android:theme="@style/AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/PopupOverlay" />
+    </android.support.design.widget.AppBarLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,6 +37,7 @@
             android:text="Check In" />
 
         <Button
+            android:id="@+id/btn_checkOut"
             android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_weight="1"
@@ -41,6 +51,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/btn_move"
             android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_weight="1"
@@ -48,11 +59,36 @@
             android:text="Move" />
 
         <Button
+            android:id="@+id/btn_Sales"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_action_sales"
+            android:text="Sales" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_Stock"
             android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_weight="1"
             android:drawableLeft="@drawable/ic_action_stock"
             android:text="Stock" />
+
+        <Button
+            android:id="@+id/btn_transaction"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_action_money_transaction"
+            android:text="Transactions" />
     </LinearLayout>
 
     <LinearLayout
@@ -61,18 +97,20 @@
         android:orientation="horizontal">
 
         <Button
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_weight="1"
-            android:drawableLeft="@drawable/ic_action_money_transaction"
-            android:text="Transaction" />
-
-        <Button
+            android:id="@+id/btn_buyer"
             android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_weight="1"
             android:drawableLeft="@drawable/ic_action_people"
             android:text="Buyer" />
+
+        <Button
+            android:id="@+id/btn_vendor"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_action_salesman"
+            android:text="Vendor" />
     </LinearLayout>
 
     <LinearLayout
@@ -81,18 +119,14 @@
         android:orientation="horizontal">
 
         <Button
+
+            android:id="@+id/btn_analytics"
             android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_weight="1"
             android:drawableLeft="@drawable/ic_action_stock_data_analysis"
             android:text="Analytics" />
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_weight="1"
-            android:drawableLeft="@drawable/ic_action_salesman"
-            android:text="Vendor" />
     </LinearLayout>
 
 </LinearLayout>
