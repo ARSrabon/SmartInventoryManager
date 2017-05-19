@@ -76,6 +76,38 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btn_Sales.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SalesActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_stock.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, StockActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_buyer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, BuyerActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_vendor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, VendorActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 

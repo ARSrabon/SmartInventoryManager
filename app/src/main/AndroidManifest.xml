@@ -28,6 +28,14 @@
             android:label="@string/title_activity_transactions"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".activity.MoveActivity" />
+        <activity
+            android:name=".activity.SalesActivity"
+            android:label="@string/title_activity_sales"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".activity.BuyerActivity" />
+        <activity android:name=".activity.VendorActivity" />
+        <activity android:name=".activity.StockActivity" />
+        <activity android:name=".activity.AnalyticsActivity"></activity>
     </application>
 
 </manifest>

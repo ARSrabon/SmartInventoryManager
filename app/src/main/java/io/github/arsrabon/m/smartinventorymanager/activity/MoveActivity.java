@@ -20,7 +20,7 @@ public class MoveActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Check In");
+        getSupportActionBar().setTitle("Move Item");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 

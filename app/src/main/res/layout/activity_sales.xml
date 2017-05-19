@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="io.github.arsrabon.m.smartinventorymanager.activity.CheckOutActivity">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="io.github.arsrabon.m.smartinventorymanager.activity.SalesActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
@@ -26,17 +27,36 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="5dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Shop: "
+            android:textSize="20sp" />
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/spin_sourceLocation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="2"
             android:text="Category :"
             android:textSize="20sp" />
 
         <android.support.v7.widget.AppCompatSpinner
-            style="@android:style/Widget.Holo.Light.Spinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="4" />
@@ -45,61 +65,66 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="5dp">
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Item :"
             android:textSize="20sp" />
 
         <android.support.v7.widget.AppCompatSpinner
-            style="@android:style/Widget.Holo.Light.Spinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="4" />
+            android:layout_weight="3" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_itemsDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Item Details"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Amount: "
+        android:textSize="20sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        android:layout_height="wrap_content">
 
-        <TextView
+        <ImageButton
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:text="Order Info. :"
-            android:textSize="20sp" />
+            android:layout_weight="1"
+            android:background="#0000"
+            android:src="@drawable/ic_add" />
 
-        <RelativeLayout
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:gravity="center"
+            android:inputType="number"
+            android:text="1" />
+
+        <ImageButton
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="4">
-
-            <EditText
-                android:id="@+id/edt_itemCode"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number" />
-
-            <ImageButton
-                android:id="@+id/btn_barcodeScanner"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_alignParentRight="true"
-                android:background="#0000"
-                android:scaleType="fitXY"
-                android:src="@drawable/ic_action_barcode"
-                android:visibility="visible" />
-        </RelativeLayout>
+            android:layout_weight="1"
+            android:background="#0000"
+            android:src="@drawable/ic_remove" />
     </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="5dp">
 
         <TextView
             android:id="@+id/txt_date"
@@ -129,80 +154,82 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Unit Price: $"
-                android:textSize="20sp" />
-
-            <EditText
-                android:id="@+id/edit_unitPrice"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Quantity:"
-                android:textSize="20sp" />
-
-            <EditText
-                android:id="@+id/edit_quantity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Description:"
-        android:textSize="20sp" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:inputType="text" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_marginTop="5dp"
+        android:orientation="vertical">
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:text="Vendor: "
+            android:layout_weight="1"
+            android:text="Buyer: "
             android:textSize="20sp" />
 
         <android.support.v7.widget.AppCompatSpinner
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="4" />
+            android:id="@+id/spin_buyer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_checkOut"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Check Out Items" />
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Total Amount: "
+                android:textSize="20sp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Paid Amount: "
+                android:textSize="20sp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Calculate Total" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Make Sale" />
+    </LinearLayout>
+
 </LinearLayout>
