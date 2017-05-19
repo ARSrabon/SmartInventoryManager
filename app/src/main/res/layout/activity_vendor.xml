@@ -9,7 +9,7 @@
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#0039cb"
+        android:background="@color/mytoolbarcolor"
         android:paddingTop="@dimen/appbar_padding_top"
         android:theme="@style/AppBarOverlay">
 

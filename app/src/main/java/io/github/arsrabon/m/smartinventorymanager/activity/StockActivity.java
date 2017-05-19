@@ -17,7 +17,7 @@ public class StockActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Move Item");
+        getSupportActionBar().setTitle("Stock");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

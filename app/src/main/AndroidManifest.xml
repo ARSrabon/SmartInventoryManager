@@ -35,7 +35,13 @@
         <activity android:name=".activity.BuyerActivity" />
         <activity android:name=".activity.VendorActivity" />
         <activity android:name=".activity.StockActivity" />
-        <activity android:name=".activity.AnalyticsActivity"></activity>
+        <activity android:name=".activity.AnalyticsActivity" />
+        <activity android:name=".activity.AboutUsActivity" />
+        <activity
+            android:name=".activity.SettingsActivity"
+            android:label="@string/title_activity_settings" />
+        <activity android:name=".activity.MyAccountActivity" />
+        <activity android:name=".activity.BackupManagerActivity"></activity>
     </application>
 
 </manifest>

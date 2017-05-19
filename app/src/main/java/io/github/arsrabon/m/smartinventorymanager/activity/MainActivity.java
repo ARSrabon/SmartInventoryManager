@@ -61,14 +61,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btn_transactions.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, TransactionsActivity.class);
-                startActivity(intent);
-            }
-        });
-
         btn_move.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,6 +85,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btn_transactions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, TransactionsActivity.class);
+                startActivity(intent);
+            }
+        });
+
         btn_buyer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,6 +108,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btn_Analytics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AnalyticsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -119,11 +127,21 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
         int id = item.getItemId();
-
-        if (id == android.R.id.home) {
-            Toast.makeText(this, "Home arrow btn is pressed.", Toast.LENGTH_SHORT).show();
-//            onBackPressed();  return true;
+        switch (id) {
+            case R.id.backup:
+                break;
+            case R.id.myAccount:
+                break;
+            case R.id.settings:
+                intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.about:
+                intent = new Intent(MainActivity.this, AboutUsActivity.class);
+                startActivity(intent);
+                break;
         }
 
         return super.onOptionsItemSelected(item);
