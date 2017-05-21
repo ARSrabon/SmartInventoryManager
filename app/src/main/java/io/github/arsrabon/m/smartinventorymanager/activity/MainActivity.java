@@ -53,12 +53,14 @@ public class MainActivity extends AppCompatActivity {
         btn_vendor = (Button) findViewById(R.id.btn_vendor);
         btn_Sales = (Button) findViewById(R.id.btn_Sales);
 
-        List<Product_Category> product_categories = new ArrayList<>();
+//        List<Product_Category> product_categories = new ArrayList<>();
 
-        product_categories.add(new Product_Category("Vegetable","Fresh vegetables from Farms","veg"));
-        product_categories.add(new Product_Category("Fruits","Fresh Fruits from Local Farms","fru"));
-
-        product_categories.get(0).save();
+//        product_categories.add(new Product_Category("Vegetable","Fresh vegetables from Farms","veg"));
+//        product_categories.add(new Product_Category("Fruits","Fresh Fruits from Local Farms","fru"));
+//
+//        for (Product_Category category : product_categories){
+//            category.save();
+//        }
 
         btn_checkIn.setOnClickListener(new View.OnClickListener() {
             @Override

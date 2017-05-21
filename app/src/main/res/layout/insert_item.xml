@@ -17,9 +17,11 @@
             android:textSize="18sp" />
 
         <EditText
+            android:id="@+id/edit_itemName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="4"
+            android:hint="Item/Product Name."
             android:textSize="18sp" />
     </LinearLayout>
 
@@ -36,7 +38,7 @@
             android:textSize="18sp" />
 
         <android.support.v7.widget.AppCompatSpinner
-            android:id="@+id/spin_TransactionType"
+            android:id="@+id/spin_categories"
             style="@android:style/Widget.Holo.Light.Spinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -56,9 +58,54 @@
             android:textSize="18sp" />
 
         <EditText
+            android:id="@+id/edit_itemCode"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="4"
+            android:hint="Item code for tracking."
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center|left"
+            android:text="Code: "
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/edit_itemDescription"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="4"
+            android:hint="Item Description."
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center|left"
+            android:text="Quantity: "
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/edit_itemQuantity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:hint="Initial item quantity."
+            android:inputType="number"
             android:textSize="18sp" />
     </LinearLayout>
 
@@ -75,9 +122,11 @@
             android:textSize="18sp" />
 
         <EditText
+            android:id="@+id/edit_itemPrice"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="4"
+            android:hint="Initial item price."
             android:inputType="numberDecimal"
             android:textSize="18sp" />
     </LinearLayout>

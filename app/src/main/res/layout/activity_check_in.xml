@@ -36,6 +36,7 @@
             android:textSize="20sp" />
 
         <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/spin_categories"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             style="@android:style/Widget.Holo.Light.Spinner"
@@ -55,6 +56,7 @@
             android:textSize="20sp" />
 
         <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/spin_items"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             style="@android:style/Widget.Holo.Light.Spinner"

@@ -10,10 +10,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DigitalClock;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -21,15 +23,23 @@ import com.google.zxing.integration.android.IntentResult;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import io.github.arsrabon.m.smartinventorymanager.R;
+import io.github.arsrabon.m.smartinventorymanager.data_model.Product;
+import io.github.arsrabon.m.smartinventorymanager.data_model.Product_Category;
 
 public class CheckInActivity extends AppCompatActivity {
 
-    Toolbar toolbar;
-    EditText edt_ItemCode;
-    ImageButton btn_barcodeScanner;
-    DigitalClock digitalClock;
+    private Toolbar toolbar;
+    private EditText edt_ItemCode;
+    private Spinner category_spinner;
+    private Spinner product_spinner;
+    private ImageButton btn_barcodeScanner;
+    private DigitalClock digitalClock;
+
+    private List<Product> productList;
+    private List<Product_Category> categoryList;
 
     //qr code scanner object
     private IntentIntegrator qrScan;
@@ -57,6 +67,9 @@ public class CheckInActivity extends AppCompatActivity {
         edt_ItemCode = (EditText) findViewById(R.id.edt_itemCode);
         btn_barcodeScanner = (ImageButton) findViewById(R.id.btn_barcodeScanner);
         digitalClock = (DigitalClock) findViewById(R.id.digitalClock);
+        category_spinner = (Spinner) findViewById(R.id.spin_categories);
+
+        categorySpinnerInit();
 
         btn_barcodeScanner.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +82,22 @@ public class CheckInActivity extends AppCompatActivity {
                 qrScan.initiateScan();
             }
         });
+    }
+
+    public void categorySpinnerInit() {
+        categoryList = Product_Category.listAll(Product_Category.class);
+        ArrayAdapter<Product_Category> categoryArrayAdapter = new ArrayAdapter<Product_Category>(this, R.layout.spinner_item, categoryList);
+        categoryArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        category_spinner.setAdapter(categoryArrayAdapter);
+    }
+
+    public void productSpinnerInit() {
+//        product_spinner = (Spinner) findViewById(R.id.spin_items);
+//        productList = new Select().from(Product.class).execute();
+//
+//        ArrayAdapter<Product> productArrayAdapter = new ArrayAdapter<Product>(this, R.layout.spinner_item, productList);
+//        productArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        product_spinner.setAdapter(productArrayAdapter);
     }
 
     //Getting the scan results

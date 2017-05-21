@@ -11,4 +11,9 @@
         android:icon="@drawable/ic_action_add_category"
         android:title="Add New Category"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/update"
+        android:icon="@drawable/ic_action_update"
+        android:title="Update"
+        app:showAsAction="always" />
 </menu>
