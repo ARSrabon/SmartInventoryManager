@@ -103,11 +103,9 @@ public class CheckOutActivity extends AppCompatActivity {
 
         switch (id) {
             case android.R.id.home:
-                Toast.makeText(this, "Home arrow btn is pressed.", Toast.LENGTH_SHORT).show();
+                onBackPressed();
+//                Toast.makeText(this, "Home arrow btn is pressed.", Toast.LENGTH_SHORT).show();
                 break;
-//            case R.id.addNewItem:
-//                Toast.makeText(this, "New item.", Toast.LENGTH_SHORT).show();
-//                break;
         }
         return super.onOptionsItemSelected(item);
     }

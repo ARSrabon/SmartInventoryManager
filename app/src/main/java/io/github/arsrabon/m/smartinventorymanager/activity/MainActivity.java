@@ -4,13 +4,19 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import io.github.arsrabon.m.smartinventorymanager.R;
+import io.github.arsrabon.m.smartinventorymanager.data_model.Product;
+import io.github.arsrabon.m.smartinventorymanager.data_model.Product_Category;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
+
         btn_checkIn = (Button) findViewById(R.id.btn_checkIn);
         btn_checkOut = (Button) findViewById(R.id.btn_checkOut);
         btn_move = (Button) findViewById(R.id.btn_move);
@@ -44,6 +52,13 @@ public class MainActivity extends AppCompatActivity {
         btn_buyer = (Button) findViewById(R.id.btn_buyer);
         btn_vendor = (Button) findViewById(R.id.btn_vendor);
         btn_Sales = (Button) findViewById(R.id.btn_Sales);
+
+        List<Product_Category> product_categories = new ArrayList<>();
+
+        product_categories.add(new Product_Category("Vegetable","Fresh vegetables from Farms","veg"));
+        product_categories.add(new Product_Category("Fruits","Fresh Fruits from Local Farms","fru"));
+
+        product_categories.get(0).save();
 
         btn_checkIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,8 +146,12 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch (id) {
             case R.id.backup:
+                intent = new Intent(MainActivity.this, BackupManagerActivity.class);
+                startActivity(intent);
                 break;
             case R.id.myAccount:
+                intent = new Intent(MainActivity.this, MyAccountActivity.class);
+                startActivity(intent);
                 break;
             case R.id.settings:
                 intent = new Intent(MainActivity.this, SettingsActivity.class);

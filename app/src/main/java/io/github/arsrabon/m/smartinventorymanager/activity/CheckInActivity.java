@@ -1,5 +1,6 @@
 package io.github.arsrabon.m.smartinventorymanager.activity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,13 +8,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.DigitalClock;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.zxing.client.android.Intents;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
@@ -118,9 +120,34 @@ public class CheckInActivity extends AppCompatActivity {
                 finish();
                 break;
             case R.id.addNewItem:
-                Toast.makeText(this, "New item.", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "New item.", Toast.LENGTH_SHORT).show();
+                insertNewItem();
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void insertNewItem() {
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.insert_item);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(true);
+        dialog.setTitle("Add New Item");
+
+        //fixing an issue where dialogue was shrinked in bigger displays.
+        Window window = dialog.getWindow();
+        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        dialog.show();// this will show the dialoge.
+
+        Button btn_addItem = (Button) dialog.findViewById(R.id.btn_addNewItem);
+
+        btn_addItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                Toast.makeText(CheckInActivity.this, "New item has been added.", Toast.LENGTH_SHORT).show();
+            }
+        });
+        return;
     }
 }

@@ -25,6 +25,26 @@
             android:layout_weight="4" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Shop: "
+            android:textSize="20sp" />
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/spin_shopsLocation"
+            style="@android:style/Widget.Holo.Light.Spinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4" />
+    </LinearLayout>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/salesHistoryView"
         android:layout_width="match_parent"
