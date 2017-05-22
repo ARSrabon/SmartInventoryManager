@@ -3,6 +3,7 @@ package io.github.arsrabon.m.smartinventorymanager.activity;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -20,15 +21,18 @@ import android.widget.Toast;
 import java.util.List;
 
 import io.github.arsrabon.m.smartinventorymanager.R;
+import io.github.arsrabon.m.smartinventorymanager.adapter.StockViewAdapter;
 import io.github.arsrabon.m.smartinventorymanager.data_model.Product;
 import io.github.arsrabon.m.smartinventorymanager.data_model.Product_Category;
 
-public class StockActivity extends AppCompatActivity {
+public class StockActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private Toolbar toolbar;
     private RecyclerView stock_RecyclerView;
+    private EditText edit_ShortCode;
     private List<Product_Category> categoryList;
     private Product_Category category;
+    private boolean newItem = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +49,19 @@ public class StockActivity extends AppCompatActivity {
     }
 
     private void initRecyclerView() {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        //linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL)
+        stock_RecyclerView.setLayoutManager(linearLayoutManager);
 
+        //List of Products
+        List<Product> productList = Product.listAll(Product.class);
+
+        try {
+            StockViewAdapter stockViewAdapter = new StockViewAdapter(productList, StockActivity.this);
+            stock_RecyclerView.setAdapter(stockViewAdapter);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -70,6 +86,8 @@ public class StockActivity extends AppCompatActivity {
             case R.id.add_category:
                 insertNewCategory();
                 break;
+            case R.id.update:
+                initRecyclerView();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -96,26 +114,14 @@ public class StockActivity extends AppCompatActivity {
         Button btn_addItem = (Button) dialog.findViewById(R.id.btn_addNewItem);
         final Spinner category_Spinner = (Spinner) dialog.findViewById(R.id.spin_categories);
         final EditText edit_itemName = (EditText) dialog.findViewById(R.id.edit_itemName);
-        final EditText edit_itemCode = (EditText) dialog.findViewById(R.id.edit_itemName);
-        final EditText edit_itemDescription = (EditText) dialog.findViewById(R.id.edit_itemName);
-        final EditText edit_itemQuantity = (EditText) dialog.findViewById(R.id.edit_itemName);
-        final EditText edit_itemPrice = (EditText) dialog.findViewById(R.id.edit_itemName);
-
+        final EditText edit_itemCode = (EditText) dialog.findViewById(R.id.edit_itemCode);
+        edit_ShortCode = edit_itemCode;
+        final EditText edit_itemDescription = (EditText) dialog.findViewById(R.id.edit_itemDescription);
+        final EditText edit_itemQuantity = (EditText) dialog.findViewById(R.id.edit_itemQuantity);
+        final EditText edit_itemPrice = (EditText) dialog.findViewById(R.id.edit_itemPrice);
+        newItem = true;
         categorySpinnerInit(category_Spinner);
-        Spinner.setOnItemClickListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                category = categoryList.get(position);
-                edit_itemCode.setText(category.getShortCode());
-                Toast.makeText(StockActivity.this, categoryList.get(position).toString(), Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                category = categoryList.get(0);
-                edit_itemCode.setText(category.getShortCode());
-            }
-        });
+        category_Spinner.setOnItemSelectedListener(this);
 
         btn_addItem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,11 +131,15 @@ public class StockActivity extends AppCompatActivity {
                 String description = edit_itemDescription.getText().toString();
                 int qty = Integer.parseInt(edit_itemQuantity.getText().toString().trim());
                 double price = Double.parseDouble(edit_itemPrice.getText().toString().trim());
-                if (name.isEmpty() && code.isEmpty()) {
+                if (!name.isEmpty() && !code.isEmpty() && (category != null)) {
                     Product product = new Product(name, description, code, qty, price, category);
                     product.save();
+                    initRecyclerView();
+                    newItem = false;
                     dialog.dismiss();
                     Toast.makeText(StockActivity.this, "New item has been added.", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(StockActivity.this, "Something Went wrong here.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -171,5 +181,32 @@ public class StockActivity extends AppCompatActivity {
             }
         });
         return;
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        category = categoryList.get(position);
+        switch (parent.getId()) {
+            case R.id.spin_categories:
+                if (edit_ShortCode != null) {
+                    edit_ShortCode.setText(category.getShortCode() + "_");
+                }
+                Toast.makeText(this, category.toString(), Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        category = categoryList.get(0);
+        switch (parent.getId()) {
+            case R.id.spin_categories:
+                EditText editText = (EditText) findViewById(R.id.edit_itemCode);
+                if (edit_ShortCode != null) {
+                    edit_ShortCode.setText(category.getShortCode() + "_");
+                }
+                Toast.makeText(this, category.toString(), Toast.LENGTH_SHORT).show();
+                break;
+        }
     }
 }

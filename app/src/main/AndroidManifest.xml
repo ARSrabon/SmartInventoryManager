@@ -3,6 +3,7 @@
     package="io.github.arsrabon.m.smartinventorymanager">
 
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-permission-sdk-23 android:name="android.permission.CAMERA" />
 
     <uses-feature android:name="android.hardware.camera" />
@@ -16,7 +17,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
         <meta-data
             android:name="DATABASE"
             android:value="smart_inventory_manager.db" />
@@ -57,7 +57,8 @@
             android:name=".activity.SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity android:name=".activity.MyAccountActivity" />
-        <activity android:name=".activity.BackupManagerActivity"></activity>
+        <activity android:name=".activity.BackupManagerActivity" />
+        <activity android:name=".ViewItemDetailsActivity"></activity>
     </application>
 
 </manifest>
