@@ -13,7 +13,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import io.github.arsrabon.m.smartinventorymanager.R;
-import io.github.arsrabon.m.smartinventorymanager.ViewItemDetailsActivity;
+import io.github.arsrabon.m.smartinventorymanager.activity.ViewItemDetailsActivity;
 import io.github.arsrabon.m.smartinventorymanager.data_model.Product;
 
 /**
@@ -39,7 +39,7 @@ public class StockViewAdapter extends RecyclerView.Adapter<StockViewAdapter.Stoc
 
     @Override
     public void onBindViewHolder(StockViewHolder holder, int position) {
-        Product product = productList.get(position);
+        final Product product = productList.get(position);
         Log.d("position: ", String.valueOf(position));
         holder.txt_itemName.setText(product.getName());
         holder.txt_itemCategory.setText(product.getProduct_category().getCategoryName());
@@ -49,6 +49,7 @@ public class StockViewAdapter extends RecyclerView.Adapter<StockViewAdapter.Stoc
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ViewItemDetailsActivity.class);
+                intent.putExtra("item_id", product.getId());
                 context.startActivity(intent);
             }
         });

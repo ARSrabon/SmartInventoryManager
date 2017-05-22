@@ -58,7 +58,7 @@
             android:label="@string/title_activity_settings" />
         <activity android:name=".activity.MyAccountActivity" />
         <activity android:name=".activity.BackupManagerActivity" />
-        <activity android:name=".ViewItemDetailsActivity"></activity>
+        <activity android:name=".activity.ViewItemDetailsActivity"></activity>
     </application>
 
 </manifest>

@@ -75,4 +75,9 @@ public class Product extends SugarRecord {
     public void setProduct_category(Product_Category product_category) {
         this.product_category = product_category;
     }
+
+    @Override
+    public String toString() {
+        return name + " \n" + productCode;
+    }
 }

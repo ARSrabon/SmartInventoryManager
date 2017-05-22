@@ -2,14 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/myAccount"
+        android:icon="@drawable/ic_my_account"
+        android:title="Account"
+        app:showAsAction="withText" />
+    <item
         android:id="@+id/backup"
         android:icon="@drawable/ic_backup"
         android:title="Backup"
-        app:showAsAction="withText" />
-    <item
-        android:id="@+id/myAccount"
-        android:icon="@drawable/ic_my_account"
-        android:title="My Account"
         app:showAsAction="withText" />
     <item
         android:id="@+id/settings"
@@ -19,4 +19,5 @@
     <item
         android:id="@+id/about"
         android:title="About Us" />
+
 </menu>

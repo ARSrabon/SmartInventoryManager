@@ -107,11 +107,12 @@
             android:id="@+id/txt_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Record: 2017-May-18 "
+            android:text="Record: 2017-May-18"
             android:textSize="20sp" />
 
         <DigitalClock
             android:id="@+id/digitalClock"
+            android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/txt_date"

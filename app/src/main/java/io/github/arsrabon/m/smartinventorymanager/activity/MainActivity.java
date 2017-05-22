@@ -1,21 +1,17 @@
 package io.github.arsrabon.m.smartinventorymanager.activity;
 
+import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import io.github.arsrabon.m.smartinventorymanager.R;
-import io.github.arsrabon.m.smartinventorymanager.data_model.Product;
 import io.github.arsrabon.m.smartinventorymanager.data_model.Product_Category;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_vendor;
     private Button btn_Sales;
 
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +40,19 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        sharedPreferences = getSharedPreferences(getString(R.string.sharedPref), Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        if (sharedPreferences.getBoolean("logInEnabled", false)) {
+//            Intent intent = new Intent(MainActivity.this)
+        }
+
+        if (sharedPreferences.getBoolean("basicDbInput", true)) {
+            Product_Category category = new Product_Category("Default", "This is demo Default category.", "demo");
+            category.save();
+            editor.putBoolean("basicDbInput", false);
+            editor.commit();
+        }
 
 
         btn_checkIn = (Button) findViewById(R.id.btn_checkIn);

@@ -88,8 +88,26 @@ public class StockActivity extends AppCompatActivity implements AdapterView.OnIt
                 break;
             case R.id.update:
                 initRecyclerView();
+                break;
+            case R.id.viewCategory:
+//                viewCategories();
+                Toast.makeText(this, "we are working on this portion of the app.", Toast.LENGTH_SHORT).show();
+                break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void viewCategories() {
+        final Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.insert_category);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(true);
+        dialog.setTitle("Categories");
+
+        //fixing an issue where dialogue was shrinked in bigger displays.
+        Window window = dialog.getWindow();
+        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        dialog.show();// this will show the dialoge.
     }
 
     public void categorySpinnerInit(Spinner spinner) {
@@ -208,5 +226,11 @@ public class StockActivity extends AppCompatActivity implements AdapterView.OnIt
                 Toast.makeText(this, category.toString(), Toast.LENGTH_SHORT).show();
                 break;
         }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        initRecyclerView();
     }
 }
