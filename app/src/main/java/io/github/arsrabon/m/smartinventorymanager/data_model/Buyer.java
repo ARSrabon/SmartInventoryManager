@@ -15,6 +15,9 @@ public class Buyer extends SugarRecord {
     private String contact_Office;
     private String address;
 
+    public Buyer() {
+    }
+
     public Buyer(String name, String companyName, String email, String contact_Personal, String contact_Office, String address) {
         this.name = name;
         this.companyName = companyName;
@@ -70,5 +73,10 @@ public class Buyer extends SugarRecord {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

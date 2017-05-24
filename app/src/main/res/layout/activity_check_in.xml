@@ -37,9 +37,9 @@
 
         <android.support.v7.widget.AppCompatSpinner
             android:id="@+id/spin_categories"
+            style="@android:style/Widget.Holo.Light.Spinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            style="@android:style/Widget.Holo.Light.Spinner"
             android:layout_weight="4" />
     </LinearLayout>
 
@@ -57,9 +57,9 @@
 
         <android.support.v7.widget.AppCompatSpinner
             android:id="@+id/spin_items"
+            style="@android:style/Widget.Holo.Light.Spinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            style="@android:style/Widget.Holo.Light.Spinner"
             android:layout_weight="4" />
     </LinearLayout>
 
@@ -72,7 +72,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:text="Order Info. :"
+            android:text="Order ID :"
             android:textSize="20sp" />
 
         <RelativeLayout
@@ -81,10 +81,10 @@
             android:layout_weight="4">
 
             <EditText
-                android:id="@+id/edt_itemCode"
-                android:inputType="number"
+                android:id="@+id/edit_checkinOrderid"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="number" />
 
             <ImageButton
                 android:id="@+id/btn_barcodeScanner"
@@ -112,9 +112,9 @@
 
         <DigitalClock
             android:id="@+id/digitalClock"
-            android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/txt_date"
             android:textSize="20sp" />
 
@@ -148,9 +148,9 @@
 
             <EditText
                 android:id="@+id/edit_unitPrice"
-                android:inputType="number"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="number" />
         </LinearLayout>
 
         <LinearLayout
@@ -167,9 +167,9 @@
 
             <EditText
                 android:id="@+id/edit_quantity"
-                android:inputType="number"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="number" />
         </LinearLayout>
     </LinearLayout>
 
@@ -181,14 +181,15 @@
         android:textSize="20sp" />
 
     <EditText
+        android:id="@+id/edit_checkInDescription"
         android:layout_width="match_parent"
-        android:inputType="text"
-        android:layout_height="75dp" />
+        android:layout_height="75dp"
+        android:inputType="text" />
 
     <LinearLayout
-        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
 
         <TextView
             android:layout_width="0dp"
@@ -198,9 +199,10 @@
             android:textSize="20sp" />
 
         <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/spin_vendor"
+            style="@android:style/Widget.Holo.Light.Spinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            style="@android:style/Widget.Holo.Light.Spinner"
             android:layout_weight="4" />
     </LinearLayout>
 

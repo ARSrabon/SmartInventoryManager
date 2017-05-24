@@ -61,7 +61,7 @@ public class StockViewAdapter extends RecyclerView.Adapter<StockViewAdapter.Stoc
         return productList.size();
     }
 
-    public class StockViewHolder extends RecyclerView.ViewHolder {
+    static class StockViewHolder extends RecyclerView.ViewHolder {
 
         CardView cardView;
         TextView txt_itemName;

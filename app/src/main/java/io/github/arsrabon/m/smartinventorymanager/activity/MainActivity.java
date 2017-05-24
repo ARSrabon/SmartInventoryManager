@@ -10,9 +10,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import java.util.List;
 
 import io.github.arsrabon.m.smartinventorymanager.R;
+import io.github.arsrabon.m.smartinventorymanager.data_model.Buyer;
+import io.github.arsrabon.m.smartinventorymanager.data_model.Location;
+import io.github.arsrabon.m.smartinventorymanager.data_model.Product;
 import io.github.arsrabon.m.smartinventorymanager.data_model.Product_Category;
+import io.github.arsrabon.m.smartinventorymanager.data_model.Type;
+import io.github.arsrabon.m.smartinventorymanager.data_model.Vendor;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,6 +58,21 @@ public class MainActivity extends AppCompatActivity {
         if (sharedPreferences.getBoolean("basicDbInput", true)) {
             Product_Category category = new Product_Category("Default", "This is demo Default category.", "demo");
             category.save();
+            List<Product_Category> product_categories = Product_Category.listAll(Product_Category.class);
+            Product product = new Product("Demo Item", "This is a demo item", "demo_item_101", 10, 3.99, product_categories.get(0));
+            product.save();
+            Buyer buyer = new Buyer("Default", "Demo Company", "default@demo.com", "0123456789", "0123456789", "Demo Address");
+            buyer.save();
+            Vendor vendor = new Vendor("Default", "Demo Company", "default@demo.com", "0123456789", "0123456789", "Demo Address");
+            vendor.save();
+            Type type = new Type("Warehouse", 1);
+            Type type1 = new Type("Showroom", 2);
+            type.save();
+            type1.save();
+            Location location = new Location("Demo Warehouse", type, "Address,Demo");
+            location.save();
+            location.save();
+            location.save();
             editor.putBoolean("basicDbInput", false);
             editor.commit();
         }
@@ -142,7 +165,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, AnalyticsActivity.class);
-                startActivity(intent);
+//                startActivity(intent);
+                Toast.makeText(MainActivity.this, "This option will be available in future version.", Toast.LENGTH_SHORT).show();
             }
         });
     }

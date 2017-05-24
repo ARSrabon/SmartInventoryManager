@@ -32,17 +32,25 @@ import java.util.Date;
 import java.util.List;
 
 import io.github.arsrabon.m.smartinventorymanager.R;
+import io.github.arsrabon.m.smartinventorymanager.data_model.Check_In;
 import io.github.arsrabon.m.smartinventorymanager.data_model.Product;
 import io.github.arsrabon.m.smartinventorymanager.data_model.Product_Category;
+import io.github.arsrabon.m.smartinventorymanager.data_model.Vendor;
 
-public class CheckInActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, DatePickerDialog.OnDateSetListener {
+public class CheckInActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener,
+        DatePickerDialog.OnDateSetListener {
 
     private Toolbar toolbar;
-    private EditText edt_ItemCode;
+    private EditText edit_checkInOrderID;
+    private EditText edit_itemUnitePrice;
+    private EditText edit_itemQuantity;
+    private EditText edit_checkInDEscription;
     private Spinner category_spinner;
     private Spinner product_spinner;
+    private Spinner vendor_Spinner;
     private ImageButton btn_barcodeScanner;
     private ImageButton btn_datePicker;
+    private Button btn_addCheckIn;
     private TextView txt_date;
     private DigitalClock digitalClock;
 
@@ -50,6 +58,9 @@ public class CheckInActivity extends AppCompatActivity implements AdapterView.On
     private Product product;
     private List<Product_Category> categoryList;
     private Product_Category category;
+    private List<Vendor> vendorList;
+    private Vendor vendor;
+    private String str_date;
 
     //qr code scanner object
     private IntentIntegrator qrScan;
@@ -76,21 +87,30 @@ public class CheckInActivity extends AppCompatActivity implements AdapterView.On
         //intializing scan object
         qrScan = new IntentIntegrator(this);
 
-        edt_ItemCode = (EditText) findViewById(R.id.edt_itemCode);
+        edit_checkInOrderID = (EditText) findViewById(R.id.edit_checkinOrderid);
+        edit_checkInDEscription = (EditText) findViewById(R.id.edit_checkInDescription);
+        edit_itemQuantity = (EditText) findViewById(R.id.edit_quantity);
+        edit_itemUnitePrice = (EditText) findViewById(R.id.edit_unitPrice);
         txt_date = (TextView) findViewById(R.id.txt_date);
         digitalClock = (DigitalClock) findViewById(R.id.digitalClock);
         btn_barcodeScanner = (ImageButton) findViewById(R.id.btn_barcodeScanner);
         btn_datePicker = (ImageButton) findViewById(R.id.btn_datePicker);
+        btn_addCheckIn = (Button) findViewById(R.id.btn_checkIn);
         category_spinner = (Spinner) findViewById(R.id.spin_categories);
         product_spinner = (Spinner) findViewById(R.id.spin_items);
+        vendor_Spinner = (Spinner) findViewById(R.id.spin_vendor);
 
-        txt_date.setText("Date&Time: " + simpleDateFormat.format(date));
+        str_date = simpleDateFormat.format(date);
+        txt_date.setText("Date&Time: " + str_date);
 
         //loads data into spinner view
         categorySpinnerInit(category_spinner);
         category_spinner.setOnItemSelectedListener(this);
 
         product_spinner.setOnItemSelectedListener(this);
+
+        vendorSpinnerInit(vendor_Spinner);
+        vendor_Spinner.setOnItemSelectedListener(this);
 
         btn_barcodeScanner.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,6 +138,33 @@ public class CheckInActivity extends AppCompatActivity implements AdapterView.On
                 dpd.show(getFragmentManager(), "Datepickerdialog");
             }
         });
+
+        btn_addCheckIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String code = edit_checkInOrderID.getText().toString();
+                String description = edit_checkInDEscription.getText().toString();
+                int qty = Integer.parseInt(edit_itemQuantity.getText().toString().trim());
+                double price = Double.parseDouble(edit_itemUnitePrice.getText().toString().trim());
+                if (!(code.isEmpty() && description.isEmpty()) && qty > 0 && price > 0.0) {
+                    Check_In check_in = new Check_In(product, description, code, price, qty, vendor, str_date);
+                    check_in.save();
+                    onBackPressed();
+                    finish();
+                    Toast.makeText(CheckInActivity.this, "Successfully Checked In Item:" + product.getName(), Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(CheckInActivity.this, "Please fill up all the fields.", Toast.LENGTH_SHORT).show();
+                }
+//                Toast.makeText(CheckInActivity.this, "Hello", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void vendorSpinnerInit(Spinner vendor_spinner) {
+        vendorList = Vendor.listAll(Vendor.class);
+        ArrayAdapter<Vendor> vendorArrayAdapter = new ArrayAdapter<Vendor>(this, R.layout.spinner_item, vendorList);
+        vendorArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        vendor_spinner.setAdapter(vendorArrayAdapter);
     }
 
     public void categorySpinnerInit(Spinner category_spinner) {
@@ -147,7 +194,7 @@ public class CheckInActivity extends AppCompatActivity implements AdapterView.On
             } else {
                 //if qr contains data
                 try {
-                    edt_ItemCode.setText(result.getContents().toString());
+                    edit_checkInOrderID.setText(result.getContents().toString());
                     Toast.makeText(this, result.getContents().toString(), Toast.LENGTH_LONG).show();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -172,12 +219,6 @@ public class CheckInActivity extends AppCompatActivity implements AdapterView.On
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
-//        if (id == android.R.id.home) {
-//            Toast.makeText(this, "Home arrow btn is pressed.", Toast.LENGTH_SHORT).show();
-////            onBackPressed();  return true;
-//        }
-
         switch (id) {
             case android.R.id.home:
 //                Toast.makeText(this, "Home arrow btn is pressed.", Toast.LENGTH_SHORT).show();
@@ -253,6 +294,9 @@ public class CheckInActivity extends AppCompatActivity implements AdapterView.On
                 Toast.makeText(this, "item Spinner", Toast.LENGTH_SHORT).show();
                 product = productList.get(position);
                 break;
+            case R.id.spin_vendor:
+                vendor = vendorList.get(position);
+                break;
         }
     }
 
@@ -271,6 +315,9 @@ public class CheckInActivity extends AppCompatActivity implements AdapterView.On
             case R.id.spin_items:
                 Toast.makeText(this, "item Spinner 1", Toast.LENGTH_SHORT).show();
                 product = productList.get(0);
+                break;
+            case R.id.spin_vendor:
+                vendor = vendorList.get(0);
                 break;
         }
     }
@@ -291,7 +338,8 @@ public class CheckInActivity extends AppCompatActivity implements AdapterView.On
             day = String.valueOf((dayOfMonth));
         }
 
-        String date = day + "-" + month + "-" + year;
-        txt_date.setText("Date&Time: " + date);
+
+        str_date = day + "-" + month + "-" + year;
+        txt_date.setText("Date&Time: " + str_date);
     }
 }

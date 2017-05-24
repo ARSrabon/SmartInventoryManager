@@ -8,7 +8,6 @@ import com.orm.dsl.Table;
  */
 @Table(name = "checkins")
 public class Check_In extends SugarRecord {
-    private String checkin_ID;
     private Product product;
     private String details;
     private String barcode;
@@ -20,9 +19,8 @@ public class Check_In extends SugarRecord {
     public Check_In() {
     }
 
-    public Check_In(String checkin_ID, Product product, String details, String barcode,
+    public Check_In(Product product, String details, String barcode,
                     double unit_price, int quantity, Vendor vendor, String timeStamp) {
-        this.checkin_ID = checkin_ID;
         this.product = product;
         this.details = details;
         this.barcode = barcode;
@@ -30,14 +28,6 @@ public class Check_In extends SugarRecord {
         this.quantity = quantity;
         this.vendor = vendor;
         this.timeStamp = timeStamp;
-    }
-
-    public String getCheckin_ID() {
-        return checkin_ID;
-    }
-
-    public void setCheckin_ID(String checkin_ID) {
-        this.checkin_ID = checkin_ID;
     }
 
     public Product getProduct() {
