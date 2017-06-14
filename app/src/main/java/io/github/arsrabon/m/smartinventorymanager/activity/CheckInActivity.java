@@ -288,10 +288,10 @@ public class CheckInActivity extends AppCompatActivity implements AdapterView.On
                 if (edit_ShortCode != null) {
                     edit_ShortCode.setText(category.getShortCode() + "_");
                 }
-                Toast.makeText(this, category.toString(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, category.toString(), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.spin_items:
-                Toast.makeText(this, "item Spinner", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "item Spinner", Toast.LENGTH_SHORT).show();
                 product = productList.get(position);
                 break;
             case R.id.spin_vendor:
@@ -310,10 +310,10 @@ public class CheckInActivity extends AppCompatActivity implements AdapterView.On
                 if (edit_ShortCode != null) {
                     edit_ShortCode.setText(category.getShortCode() + "_");
                 }
-                Toast.makeText(this, category.toString(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, category.toString(), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.spin_items:
-                Toast.makeText(this, "item Spinner 1", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "item Spinner 1", Toast.LENGTH_SHORT).show();
                 product = productList.get(0);
                 break;
             case R.id.spin_vendor:

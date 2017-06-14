@@ -36,6 +36,7 @@
             android:textSize="20sp" />
 
         <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/spin_categories"
             style="@android:style/Widget.Holo.Light.Spinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -55,6 +56,7 @@
             android:textSize="20sp" />
 
         <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/spin_items"
             style="@android:style/Widget.Holo.Light.Spinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -147,7 +149,9 @@
                 android:id="@+id/edit_unitPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number" />
+                android:gravity="center"
+                android:inputType="number"
+                android:text="0" />
         </LinearLayout>
 
         <LinearLayout
@@ -166,7 +170,9 @@
                 android:id="@+id/edit_quantity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number" />
+                android:gravity="center"
+                android:inputType="number"
+                android:text="0" />
         </LinearLayout>
     </LinearLayout>
 
@@ -179,7 +185,7 @@
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="75dp"
+        android:layout_height="60dp"
         android:inputType="text" />
 
     <LinearLayout
@@ -194,6 +200,8 @@
             android:textSize="20sp" />
 
         <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/spin_vendor"
+            style="@android:style/Widget.Holo.Light.Spinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="4" />

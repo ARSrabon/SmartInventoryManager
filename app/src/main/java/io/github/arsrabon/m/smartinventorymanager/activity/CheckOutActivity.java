@@ -71,7 +71,6 @@ public class CheckOutActivity extends AppCompatActivity implements AdapterView.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_out);
 
-        setContentView(R.layout.activity_check_in);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Check Out");
@@ -92,7 +91,7 @@ public class CheckOutActivity extends AppCompatActivity implements AdapterView.O
         digitalClock = (DigitalClock) findViewById(R.id.digitalClock);
         btn_barcodeScanner = (ImageButton) findViewById(R.id.btn_barcodeScanner);
         btn_datePicker = (ImageButton) findViewById(R.id.btn_datePicker);
-        btn_addCheckOut = (Button) findViewById(R.id.btn_checkIn);
+        btn_addCheckOut = (Button) findViewById(R.id.btn_checkOut);
         category_spinner = (Spinner) findViewById(R.id.spin_categories);
         product_spinner = (Spinner) findViewById(R.id.spin_items);
         vendor_Spinner = (Spinner) findViewById(R.id.spin_vendor);
@@ -233,7 +232,7 @@ public class CheckOutActivity extends AppCompatActivity implements AdapterView.O
                 Toast.makeText(this, category.toString(), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.spin_items:
-                Toast.makeText(this, "item Spinner", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "item Spinner", Toast.LENGTH_SHORT).show();
                 product = productList.get(position);
                 break;
             case R.id.spin_vendor:
@@ -255,7 +254,7 @@ public class CheckOutActivity extends AppCompatActivity implements AdapterView.O
                 Toast.makeText(this, category.toString(), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.spin_items:
-                Toast.makeText(this, "item Spinner 1", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "item Spinner 1", Toast.LENGTH_SHORT).show();
                 product = productList.get(0);
                 break;
             case R.id.spin_vendor:

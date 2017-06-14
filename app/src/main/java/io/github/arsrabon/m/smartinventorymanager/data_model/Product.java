@@ -78,6 +78,6 @@ public class Product extends SugarRecord {
 
     @Override
     public String toString() {
-        return name + " \n" + productCode;
+        return productCode;
     }
 }
