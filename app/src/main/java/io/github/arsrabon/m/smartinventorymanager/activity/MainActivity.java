@@ -70,9 +70,11 @@ public class MainActivity extends AppCompatActivity {
             type.save();
             type1.save();
             Location location = new Location("Demo Warehouse", type, "Address,Demo");
+            Location location1 = new Location("Demo Shop A", type, "Address,Demo");
+            Location location2 = new Location("Demo Shop B", type, "Address,Demo");
             location.save();
-            location.save();
-            location.save();
+            location1.save();
+            location2.save();
             editor.putBoolean("basicDbInput", false);
             editor.commit();
         }

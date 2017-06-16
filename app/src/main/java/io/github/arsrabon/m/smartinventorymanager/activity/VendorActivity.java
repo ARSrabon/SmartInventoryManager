@@ -88,7 +88,7 @@ public class VendorActivity extends AppCompatActivity {
         dialog.setContentView(R.layout.insert_buyer_vendor);
         dialog.setCanceledOnTouchOutside(true);
         dialog.setCancelable(true);
-        dialog.setTitle("Add New Vendor");
+        dialog.setTitle("New Vendor");
 
         //fixing an issue where dialogue was shrinked in bigger displays.
         Window window = dialog.getWindow();

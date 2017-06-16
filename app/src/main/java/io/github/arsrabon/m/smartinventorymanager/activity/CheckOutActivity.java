@@ -229,7 +229,7 @@ public class CheckOutActivity extends AppCompatActivity implements AdapterView.O
                 if (edit_ShortCode != null) {
                     edit_ShortCode.setText(category.getShortCode() + "_");
                 }
-                Toast.makeText(this, category.toString(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, category.toString(), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.spin_items:
 //                Toast.makeText(this, "item Spinner", Toast.LENGTH_SHORT).show();
@@ -251,7 +251,7 @@ public class CheckOutActivity extends AppCompatActivity implements AdapterView.O
                 if (edit_ShortCode != null) {
                     edit_ShortCode.setText(category.getShortCode() + "_");
                 }
-                Toast.makeText(this, category.toString(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, category.toString(), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.spin_items:
 //                Toast.makeText(this, "item Spinner 1", Toast.LENGTH_SHORT).show();

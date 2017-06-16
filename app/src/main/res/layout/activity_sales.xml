@@ -13,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/mytoolbarcolor"
-        android:paddingTop="@dimen/appbar_padding_top"
         android:theme="@style/AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
@@ -25,6 +24,7 @@
     </android.support.design.widget.AppBarLayout>
 
     <LinearLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -35,46 +35,51 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Shop: "
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <android.support.v7.widget.AppCompatSpinner
             android:id="@+id/spin_sourceLocation"
+            style="@android:style/Widget.Holo.Light.Spinner"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1" />
     </LinearLayout>
 
     <LinearLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp">
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="2"
             android:text="Category :"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <android.support.v7.widget.AppCompatSpinner
+            style="@android:style/Widget.Holo.Light.Spinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="4" />
     </LinearLayout>
 
     <LinearLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp">
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Item :"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <android.support.v7.widget.AppCompatSpinner
+            style="@android:style/Widget.Holo.Light.Spinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3" />
@@ -82,19 +87,22 @@
 
     <TextView
         android:id="@+id/txt_itemsDetails"
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Item Details"
-        android:textSize="20sp" />
+        android:textSize="15sp" />
 
     <TextView
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="Amount: "
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
     <LinearLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -122,6 +130,7 @@
     </LinearLayout>
 
     <RelativeLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp">
@@ -131,14 +140,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Record: 2017-May-18 "
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <DigitalClock
             android:id="@+id/digitalClock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/txt_date"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <ImageButton
             android:id="@+id/btn_datePicker"
@@ -152,6 +161,7 @@
     </RelativeLayout>
 
     <LinearLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -162,10 +172,11 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Buyer: "
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <android.support.v7.widget.AppCompatSpinner
             android:id="@+id/spin_buyer"
+            style="@android:style/Widget.Holo.Light.Spinner"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1" />
@@ -178,6 +189,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
+            style="@style/myLayoutStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -188,7 +200,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="Total Amount: "
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <EditText
                 android:layout_width="match_parent"
@@ -206,7 +218,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="Paid Amount: "
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <EditText
                 android:layout_width="match_parent"
@@ -215,6 +227,7 @@
     </LinearLayout>
 
     <LinearLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">

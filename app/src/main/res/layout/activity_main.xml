@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:background="@color/mytoolbarcolor"
         android:paddingTop="@dimen/appbar_padding_top"
+        android:paddingBottom="@dimen/appbar_padding_top"
         android:theme="@style/AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
@@ -24,6 +25,7 @@
     </android.support.design.widget.AppBarLayout>
 
     <LinearLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -46,6 +48,7 @@
     </LinearLayout>
 
     <LinearLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -70,6 +73,7 @@
     </LinearLayout>
 
     <LinearLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -92,6 +96,7 @@
     </LinearLayout>
 
     <LinearLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -114,12 +119,12 @@
     </LinearLayout>
 
     <LinearLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <Button
-
             android:id="@+id/btn_analytics"
             android:layout_width="0dp"
             android:layout_height="80dp"

@@ -89,7 +89,7 @@ public class BuyerActivity extends AppCompatActivity {
         dialog.setContentView(R.layout.insert_buyer_vendor);
         dialog.setCanceledOnTouchOutside(true);
         dialog.setCancelable(true);
-        dialog.setTitle("Add Buyer");
+        dialog.setTitle("New Buyer");
 
         //fixing an issue where dialogue was shrinked in bigger displays.
         Window window = dialog.getWindow();

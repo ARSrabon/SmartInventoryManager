@@ -23,6 +23,7 @@
     </android.support.design.widget.AppBarLayout>
 
     <LinearLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp">
@@ -43,6 +44,7 @@
     </LinearLayout>
 
     <LinearLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp">
@@ -63,6 +65,7 @@
     </LinearLayout>
 
     <LinearLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp">
@@ -72,7 +75,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:text="Order ID :"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <RelativeLayout
             android:layout_width="0dp"
@@ -98,6 +101,7 @@
     </LinearLayout>
 
     <RelativeLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp">
@@ -107,7 +111,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Record: 2017-May-18"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <DigitalClock
             android:id="@+id/digitalClock"
@@ -115,7 +119,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_toRightOf="@+id/txt_date"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <ImageButton
             android:id="@+id/btn_datePicker"
@@ -129,6 +133,7 @@
     </RelativeLayout>
 
     <LinearLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp">
@@ -177,6 +182,7 @@
     </LinearLayout>
 
     <TextView
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -185,11 +191,13 @@
 
     <EditText
         android:id="@+id/edit_checkInDescription"
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:inputType="textMultiLine" />
 
     <LinearLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp">

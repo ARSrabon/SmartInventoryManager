@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/mytoolbarcolor"
-        android:paddingTop="@dimen/appbar_padding_top"
         android:theme="@style/AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
@@ -24,9 +23,10 @@
     </android.support.design.widget.AppBarLayout>
 
     <LinearLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="5dp">
 
         <TextView
             android:layout_width="0dp"
@@ -44,9 +44,10 @@
     </LinearLayout>
 
     <LinearLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="5dp">
 
         <TextView
             android:layout_width="0dp"
@@ -64,16 +65,17 @@
     </LinearLayout>
 
     <LinearLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="5dp">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:text="Order Info. :"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <RelativeLayout
             android:layout_width="0dp"
@@ -99,23 +101,24 @@
     </LinearLayout>
 
     <RelativeLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="5dp">
 
         <TextView
             android:id="@+id/txt_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Record: 2017-May-18 "
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <DigitalClock
             android:id="@+id/digitalClock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/txt_date"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <ImageButton
             android:id="@+id/btn_datePicker"
@@ -129,9 +132,10 @@
     </RelativeLayout>
 
     <LinearLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="5dp">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -177,20 +181,24 @@
     </LinearLayout>
 
     <TextView
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:text="Description:"
         android:textSize="20sp" />
 
     <EditText
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:inputType="text" />
+        android:inputType="textMultiLine" />
 
     <LinearLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
 
         <TextView
             android:layout_width="0dp"

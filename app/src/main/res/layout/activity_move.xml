@@ -25,9 +25,10 @@
     </android.support.design.widget.AppBarLayout>
 
     <LinearLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="5dp">
 
         <TextView
             android:layout_width="0dp"
@@ -45,9 +46,10 @@
     </LinearLayout>
 
     <LinearLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="5dp">
 
         <TextView
             android:layout_width="0dp"
@@ -66,13 +68,15 @@
 
 
     <TextView
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:text="Amount: "
         android:textSize="20sp" />
 
     <LinearLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -103,9 +107,10 @@
     </LinearLayout>
 
     <LinearLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:orientation="vertical">
 
         <TextView
@@ -124,9 +129,10 @@
     </LinearLayout>
 
     <LinearLayout
+        style="@style/myLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:orientation="vertical">
 
         <TextView

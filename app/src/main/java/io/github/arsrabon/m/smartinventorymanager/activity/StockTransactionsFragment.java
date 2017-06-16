@@ -55,4 +55,9 @@ public class StockTransactionsFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        setRecyclerView(stock_RecyclerView);
+    }
 }
